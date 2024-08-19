@@ -1,5 +1,6 @@
 const $circle = document.querySelector('#circle')
 const $score = document.querySelector('#score')
+const deleteBtn = document.querySelector('#delete-btn')
 
 
 function start() {
@@ -26,6 +27,13 @@ function setImage() {
         $circle.setAttribute('src', './assets/lizzard.png')
     }
 }
+
+
+function deleteScore() {
+    localStorage.removeItem('score')
+    location.reload()
+}
+deleteBtn.addEventListener('click', deleteScore)
 
 $circle.addEventListener('click', function(event) {
     const rect = $circle.getBoundingClientRect()
